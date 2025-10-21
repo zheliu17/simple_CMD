@@ -1,5 +1,7 @@
 # Simple CMD for 1D Systems
 
+Author: Zhe Liu <zhe.liu2 [at] wisc.edu>
+
 Ever tried to run a Centroid Molecular Dynamics (CMD) simulation for a simple 1D system, only to find the existing code was way too complex? I was in the same boat, so I wrote my own!
 
 This project is a minimal, no-fuss implementation of CMD designed for any 1D potential. As a demonstration (`main.ipynb`), the code can reproduce the results in Figure 7 from the paper by Jang and Voth:
