@@ -18,7 +18,7 @@ from typing import Callable, List, Tuple
 
 
 @jit(nopython=True)
-def TwoPointsAction(
+def get_bead_action(
     potential: Callable[[float], float],
     x_plus: float,
     x_minus: float,
@@ -43,7 +43,7 @@ def TwoPointsAction(
 
 
 @jit(nopython=True)
-def MC_sweep(
+def run_pimc_sweep(
     path: np.ndarray,
     N_beads: int,
     step_size: float,
@@ -79,10 +79,10 @@ def MC_sweep(
         proposed_pos = current_pos + (np.random.rand() - 0.5) * 2 * step_size
 
         # Calculate action for old and new positions
-        old_action = TwoPointsAction(
+        old_action = get_bead_action(
             potential, current_path[next_bead], current_path[prev_bead], current_pos, mass, beta_N
         )
-        new_action = TwoPointsAction(
+        new_action = get_bead_action(
             potential, current_path[next_bead], current_path[prev_bead], proposed_pos, mass, beta_N
         )
         
@@ -124,7 +124,7 @@ def pimc_sample(
     for _ in range(n_iterations):
         path = np.zeros(N_beads)
         for i in range(n_sweeps):
-            path, _ = MC_sweep(path, N_beads, step_size, potential, mass, beta)
+            path, _ = run_pimc_sweep(path, N_beads, step_size, potential, mass, beta)
             if i >= burn_in:
                 ret.append(callback(path))
     return ret

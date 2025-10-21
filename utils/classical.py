@@ -18,7 +18,7 @@ from typing import Callable, List, Tuple
 
 
 @jit(nopython=True)
-def Metropolis(
+def run_metropolis_sampling(
     n_samples: int,
     potential: Callable[[float], float],
     step_size: float = 0.4,
@@ -62,7 +62,7 @@ def Metropolis(
 
 
 @jit(nopython=True)
-def verlet(
+def run_verlet_step(
     pos: np.ndarray,
     vel: np.ndarray,
     mass: float,
@@ -86,7 +86,7 @@ def verlet(
 
 
 @jit(nopython=True)
-def nve_simulation(
+def run_nve_simulation(
     pos: np.ndarray,
     vel: np.ndarray,
     mass: float,
@@ -108,6 +108,6 @@ def nve_simulation(
     trajectory = np.zeros((n_steps, len(pos)))
     trajectory[0] = pos
     for step in range(1, n_steps):
-        pos, vel = verlet(pos, vel, mass, dV, dt)
+        pos, vel = run_verlet_step(pos, vel, mass, dV, dt)
         trajectory[step] = pos
     return trajectory

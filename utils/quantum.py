@@ -17,7 +17,7 @@ import scipy
 from typing import Callable, Tuple
 
 
-def sincDVRSolver(
+def solve_sinc_dvr(
     potential: Callable[[np.ndarray], np.ndarray],
     N_states: int = 10,
     N_grids: int = 1,
@@ -69,7 +69,7 @@ def sincDVRSolver(
     return ene, coef, xx
 
 
-def KuboCorrelation(
+def get_Kubo_correlation(
     time: np.ndarray,
     energy: np.ndarray,
     A_matrix: np.ndarray,
