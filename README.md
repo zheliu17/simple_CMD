@@ -4,9 +4,9 @@ Author: Zhe Liu <zhe.liu2 [at] wisc.edu>
 
 Ever tried to run a Centroid Molecular Dynamics (CMD) simulation for a simple 1D system, only to find the existing code was way too complex? I was in the same boat, so I wrote my own!
 
-This project is a minimal, no-fuss implementation of CMD designed for any 1D potential. As a demonstration (`main.ipynb`), the code can reproduce the results in Figure 7 from the paper by Jang and Voth:
+This project is a minimal, no-fuss implementation of CMD designed for any 1D potential. As a demonstration (`main.ipynb`), the code can reproduce the results in Figure 7 from the paper by Pérez, Tuckerman and Müser:
 
-> *Path integral centroid variables and the formulation of their exact real time dynamics.* [J. Chem. Phys. 111, 2357 (1999)](https://doi.org/10.1063/1.3126950)
+> *A comparative study of the centroid and ring-polymer molecular dynamics methods for approximating quantum time correlation functions from path integrals.* [J. Chem. Phys. 130, 184105 (2009)](https://doi.org/10.1063/1.3126950)
 
 ## What's inside?
 
